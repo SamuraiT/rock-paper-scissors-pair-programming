@@ -30,18 +30,27 @@ $(function(){
   function bobHand() {
     return HAND_TYPE[ Math.floor(Math.random() * 3) ];
   }
+  function displayResultSummary(){
+    $(".result-summary").text(
+    "戦績サマリー:"+RESULT_SUMMARY.WIN+"勝"+RESULT_SUMMARY.LOSE+"敗"+RESULT_SUMMARY.DRAW+"分け");
+  }
 
   function judge(myHand, opponentHand) {
     var result;
     if (myHand === opponentHand) {
       result = RESULT_CODE.DRAW;
+      RESULT_SUMMARY.DRAW += 1;
     } else if ((myHand === HAND_TYPE[0] && opponentHand === HAND_TYPE[1]) ||
                (myHand === HAND_TYPE[1] && opponentHand === HAND_TYPE[2]) || 
                (myHand === HAND_TYPE[2] && opponentHand === HAND_TYPE[0])) {
       result = RESULT_CODE.WIN;
+      RESULT_SUMMARY.WIN += 1;
+
     }else {
       result = RESULT_CODE.LOSE;
+      RESULT_SUMMARY.LOSE += 1 ;
     }
+    displayResultSummary();
     return result;
   }
 });
