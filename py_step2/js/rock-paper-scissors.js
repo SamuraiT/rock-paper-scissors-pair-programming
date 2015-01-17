@@ -3,6 +3,7 @@ $(function(){
   var HAND_TYPE = [ "rock" , "scissors" , "paper" ];
   var RESULT_CODE = { DRAW : 0, WIN : 1, LOSE : 2, };
   var RESULT_MESSAGE = [ "draw.","You win!","You lose!" ];
+  var RESULT_SUMMARY = { DRAW : 0, WIN : 0, LOSE : 0, };
 
   $(".rsp-btn").click(function(){
     var opponentHand = bobHand();
